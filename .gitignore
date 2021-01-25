@@ -61,4 +61,4 @@ build
 hs_err_pid*
 
 # maven file directory
-null/
+**/null/
