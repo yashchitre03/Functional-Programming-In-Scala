@@ -63,23 +63,23 @@ class Rational(x: Int, y: Int) {
   val numer: Int = x / gcd(x, y)
   val denom: Int = y / gcd(x, y)
 
-  def add(that: Rational): Rational =
+  def + (that: Rational): Rational =
     new Rational(numer * that.denom + that.numer * denom,
       denom * that.denom)
 
   override def toString: String = s"$numer/$denom"
 
-  def neg: Rational =
+  def unary_- : Rational =
     new Rational(-numer, denom)
 
-  def sub(that: Rational): Rational =
-    add(that.neg)
+  def - (that: Rational): Rational =
+    this + -that
 
-  def less(that: Rational): Boolean =
+  def < (that: Rational): Boolean =
     numer * that.denom < that.numer * denom
 
   def max(that: Rational): Rational =
-    if (this.less(that)) that
+    if (this < that) that
     else this
 }
 
@@ -90,22 +90,25 @@ val z = new Rational(3, 2)
 x.numer
 x.denom
 
-x.add(y)
+//x.add(y)
 
 x.toString
 
-x.neg
+//x.neg
 
-x.sub(y)
-
-x.sub(y).sub(z)
-y.add(y)
+//x.sub(y)
+//
+//x.sub(y).sub(z)
+//y.add(y)
 
 /*
 Lecture 2.6
  */
 
-x.less(y)
+//x.less(y)
 x.max(y)
 
-new Rational(1, 0)
+//new Rational(1, 0)
+
+x + y + z
+x - y - z
