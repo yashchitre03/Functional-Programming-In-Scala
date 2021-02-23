@@ -1,1 +1,1 @@
-# Coursera-Functional-Programming-Specialization
+# Functional Programming in Scala
